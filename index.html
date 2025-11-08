@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bot Backend Server</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            text-shadow: 0 0 10px #00ff00;
+            animation: glitch 1s infinite;
+        }
+        .status {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+        @keyframes glitch {
+            0% { transform: translate(1px, 1px); }
+            50% { transform: translate(-1px, -1px); }
+            100% { transform: translate(1px, 1px); }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>[SERVER] STATUS: ONLINE 🟢</h1>
+    <div class="status">
+        <p>Loading Critical Server Logic...</p>
+        <p>DO NOT CLOSE THIS WINDOW (jk, you can, it runs in the background)</p>
+    </div>
+
+    <script>
+        function getRandomLog() {
+            var prefix = ["INIT", "ERROR", "DEBUG", "WARN", "HACKER_DETECT", "CORE_PROCESS", "API_CALL", "GAMEMODE"];
+            var action = ["Loading", "Checking", "Sending", "Executing", "Bypassing", "Downloading", "Analyzing", "Injecting"];
+            var noun = ["user data", "the token", "firewall", "dark matter", "the database", "cat videos", "crypto miner", "giveaway entry"];
+            var status = ["SUCCESS", "FAILED", "PENDING", "ACTIVE", "OMG"];
+            
+            var randomPrefix = prefix[Math.floor(Math.random() * prefix.length)];
+            var randomAction = action[Math.floor(Math.random() * action.length)];
+            var randomNoun = noun[Math.floor(Math.random() * noun.length)];
+            var randomStatus = status[Math.floor(Math.random() * status.length)];
+            
+            return `[${randomPrefix}] ${randomAction} ${randomNoun} (${randomStatus}) - Result: ${Math.random() < 0.8 ? 'OK' : 'UH OH'}`;
+        }
+
+        function spamTheConsole() {
+            var randomNumber = Math.floor(Math.random() * 99999) + 10000;
+            var logMessage = getRandomLog();
+            
+            console.log(`[${Date.now() % 10000}ms] [TASK-${randomNumber}] - ${logMessage}`);
+        }
+
+        function logCriticalStatus() {
+            console.warn("-------------------------------------------------------");
+            console.warn("!!! CRITICAL: SERVER ACCESS COMPLETE (HTTP STATUS 301 - PERMANENT REDIRECT SUCCESS) !!!");
+            console.warn("!!! CLIENT IS NOW AUTHORIZED TO START !!!");
+            console.warn("-------------------------------------------------------");
+
+            console.error("If the bot DOES NOT start, it's probably your Discord token, not my awesome code.");
+        }
+        
+        var spamInterval = setInterval(spamTheConsole, 50);
+        setTimeout(logCriticalStatus, 3000); 
+
+    </script>
+</body>
+</html>
